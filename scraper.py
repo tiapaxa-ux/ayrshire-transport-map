@@ -23,7 +23,8 @@ print("System initialised. North Ayrshire coordinate boundaries locked.")
 
 # 3. FETCH LIVE BUS TRACKING DATA FROM BODS API
 print("Connecting to UK Bus Open Data Service...")
-bods_url = f"https://bus-data.gov.uk{BODS_API_KEY}"
+api_path = "/api/v1/keyless/vehicle_positions.json?api_key="
+bods_url = f"https://data.bus-data.gov.uk{api_path}{BODS_API_KEY}"
 
 try:
     response = requests.get(bods_url, timeout=15)
