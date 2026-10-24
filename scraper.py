@@ -26,6 +26,7 @@ print("Connecting to UK Bus Open Data Service...")
 api_path = "/api/v1/keyless/vehicle_positions.json?api_key="
 bods_url = f"https://bus-data.gov.uk{api_path}{BODS_API_KEY}"
 
+
 try:
     response = requests.get(bods_url, timeout=15)
     response.raise_for_status()
