@@ -10,20 +10,20 @@ BODS_API_KEY = os.environ.get("BODS_API_KEY")
 
 if not BODS_API_KEY:
     print("CRITICAL ERROR: BODS_API_KEY is missing from GitHub Secrets.")
-    print("Please add it to your Repository Settings -> Secrets -> Actions.")
     sys.exit(1)
 
 # 2. DEFINE NORTH AYRSHIRE BOUNDARIES
-MIN_LAT = 55.45   # Southern border
-MAX_LAT = 55.88   # Northern border
-MIN_LON = -5.00   # Western border
-MAX_LON = -4.55   # Eastern border
+MIN_LAT = 55.45
+MAX_LAT = 55.88
+MIN_LON = -5.00
+MAX_LON = -4.55
 
 print("System initialised. North Ayrshire coordinate boundaries locked.")
 
 # 3. FETCH LIVE BUS TRACKING DATA FROM BODS API
 print("Connecting to UK Bus Open Data Service...")
 bods_url = f"https://bus-data.gov.uk{BODS_API_KEY}"
+
 try:
     response = requests.get(bods_url, timeout=15)
     response.raise_for_status()
